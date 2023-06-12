@@ -26,7 +26,6 @@ docker push umesh2645/node_mongo_app --all-tags
 or a specific tag
 docker push umesh2645/node_mongo_app:latest
 ```
-## Step 2: create mongo secrates and config map
 
 ### RUN below command to create a new ns
 ```
@@ -40,36 +39,22 @@ kubectl config set-context --current --namespace=nodemongoapp
 ```
  echo -n 'root' | base64
  echo -n '123456' | base64
-and updating above base 64 in mongo-secret.yaml file and apply this change as below in kubernates
+```
+## compands
+```
 kubectl apply -f mongo-secret.yaml
-```
-### b) OR using cmd line directly
-```
+or
 kubectl create secret generic mongodb-secret --from-literal=mongo-root-username=root --from-literal=mongo-root-password=123456
-RUN below command to check: 
-kubectl get secret
-kubectl describe secret mongodb-secret
+
+kubectl apply -f mongo-volumes.yaml
+kubectl apply -f mongo-deployment.yaml
+kubectl apply -f mongo-svc.yaml
+kubectl apply -f node-deployment.yaml
 ```
-
-## create config map for mongodb
+# access app on below URL
 ```
-RUN below command
+http://localhost:3000
+http://localhost:3000/tasks
 ```
-
-
-
-###### compands
-
-kubectl get pv
-kubectl get pvc
-kubectl apply -f .\mongodb-deployment.yml
-kubectl get statefulset
-
-kubectl get storageclass
-
-Storage Class -> PVC -> Reference claim in pod
-Create PVC and use this in db statefull deployments
-
-kubectl create -f .\mongodb-pvc.yaml
 
 
