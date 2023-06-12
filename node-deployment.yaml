@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs
+  namespace: nodemongoapp
+spec:
+  replicas: 1
+  # strategy: 
+  #     type: "RollingUpdate"
+  #     rollingUpdate: 
+  #       maxSurge: 1
+  #       maxUnavailable: 1
+  #       minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+        - name: nodejs
+          image: umesh2645/node_mongo_app:latest
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_HOST
+              value: mongodb     
+            - name: DB_NAME
+              value: "todoapp"
+            - name: NODE_DOCKER_PORT
+              value: "3000"
+            - name: DB_PORT
+              value: "27017"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: mongo-root-username
+            - name: DB_PASSWORD
+              valueFrom: 
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: mongo-root-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-svc
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: nodejs
