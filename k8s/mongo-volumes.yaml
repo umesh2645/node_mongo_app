@@ -15,7 +15,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /run/desktop/mnt/host/e/mongo-pv/
+    path: /run/desktop/mnt/host/c/mongo-pv/
     type: DirectoryOrCreate
   nodeAffinity:
     required:
