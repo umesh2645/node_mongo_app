@@ -26,7 +26,7 @@ docker push umesh2645/node_mongo_app --all-tags
 or a specific tag
 docker push umesh2645/node_mongo_app:latest
 ```
-
+# Commands to RUN and start
 ### RUN below command to create a new ns
 ```
 kubectl create ns nodemongoapp
@@ -40,7 +40,6 @@ kubectl config set-context --current --namespace=nodemongoapp
  echo -n 'root' | base64
  echo -n '123456' | base64
 ```
-## Commands to RUN and start
 ```
 kubectl apply -f mongo-secret.yaml
 or
@@ -56,5 +55,4 @@ kubectl apply -f node-deployment.yaml
 http://localhost:3000
 http://localhost:3000/tasks
 ```
-
 

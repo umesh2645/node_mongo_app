@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: nodejs
-          image: umesh2645/node_mongo_app:latest
+          image: umesh2645/node_mongo_app:1.1
           imagePullPolicy: Always
           resources:
             limits:
