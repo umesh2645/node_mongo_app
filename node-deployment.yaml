@@ -4,13 +4,12 @@ metadata:
   name: nodejs
   namespace: nodemongoapp
 spec:
-  replicas: 1
-  # strategy: 
-  #     type: "RollingUpdate"
-  #     rollingUpdate: 
-  #       maxSurge: 1
-  #       maxUnavailable: 1
-  #       minReadySeconds: 5
+  replicas: 4
+  strategy: 
+      type: RollingUpdate
+      rollingUpdate: 
+        maxSurge: 1
+        maxUnavailable: 1
   selector:
     matchLabels:
       app: nodejs

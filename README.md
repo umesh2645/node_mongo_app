@@ -1,23 +1,23 @@
+# Kubernates
 
-# 1. Create .env in root and Update env values like below
-    ```
-    MONGODB_USER=root
-    MONGODB_PASSWORD=??????
-    MONGODB_DATABASE=todoapp
-    MONGODB_LOCAL_PORT=27017
-    MONGODB_DOCKER_PORT=27017
-    NODE_LOCAL_PORT=3000
-    NODE_DOCKER_PORT=80
-    ```
-    # Project setup and run
-    ```
-    docker-compose up -d --build
-    ```
-    # Access application to PORT NODE_LOCAL_PORT
-    ```
-    http://localhost:3000/tasks
-    ```
-# 2. In kubernates env
+### Link for the code repository
+```
+https://github.com/umesh2645/node_mongo_app
+```
+
+### Docker hub URL for docker images
+
+```
+https://hub.docker.com/r/umesh2645/node_mongo_app
+```
+
+### URL for Service API tier to view the records from backend tier
+```
+http://localhost:3000/tasks
+```
+
+# Steps to run the project in Docker desktop locally 
+
 ## Step 1: Login, create image , tag it and push to docker hub
 ```
 docker login
@@ -40,7 +40,7 @@ kubectl config set-context --current --namespace=nodemongoapp
  echo -n 'root' | base64
  echo -n '123456' | base64
 ```
-## compands
+## Commands to RUN and start
 ```
 kubectl apply -f mongo-secret.yaml
 or
@@ -51,7 +51,7 @@ kubectl apply -f mongo-deployment.yaml
 kubectl apply -f mongo-svc.yaml
 kubectl apply -f node-deployment.yaml
 ```
-# access app on below URL
+# Access app on below URL
 ```
 http://localhost:3000
 http://localhost:3000/tasks
