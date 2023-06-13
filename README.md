@@ -56,3 +56,8 @@ http://localhost:3000
 http://localhost:3000/tasks
 ```
 
+## Rollout and monitor changes 
+```
+kubectl rollout status deployment/nodejs
+```
+
