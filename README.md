@@ -48,6 +48,7 @@ kubectl create secret generic mongodb-secret --from-literal=mongo-root-username=
 kubectl apply -f mongo-volumes.yaml
 kubectl apply -f mongo-deployment.yaml
 kubectl apply -f mongo-svc.yaml
+kubectl apply -f mongo-configmap.yaml
 kubectl apply -f node-deployment.yaml
 ```
 # Access app on below URL

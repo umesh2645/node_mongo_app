@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: nodejs
-          image: umesh2645/node_mongo_app:1.1
+          image: umesh2645/node_mongo_app:1.0
           imagePullPolicy: Always
           resources:
             limits:
@@ -31,15 +31,12 @@ spec:
               cpu: "0.2"
           ports:
             - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: mongodb-configmap
           env:
-            - name: DB_HOST
-              value: mongodb     
-            - name: DB_NAME
-              value: "todoapp"
             - name: NODE_DOCKER_PORT
               value: "3000"
-            - name: DB_PORT
-              value: "27017"
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
