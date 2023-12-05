@@ -4,7 +4,7 @@ metadata:
   name: nodejs
   namespace: nodemongoapp
 spec:
-  replicas: 4
+  replicas: 2
   strategy: 
       type: RollingUpdate
       rollingUpdate: 

@@ -27,7 +27,7 @@ or a specific tag
 docker push umesh2645/node_mongo_app:latest
 ```
 # Commands to RUN and start
-### RUN below command to create a new ns
+### RUN below command to create a new namespace
 ```
 kubectl create ns nodemongoapp
 
